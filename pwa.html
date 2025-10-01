@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  <title>Progressive Web Apps Tips | Abubakar Musa</title>
+  <meta name="description" content="Essential tips to help you build fast, reliable, and engaging Progressive Web Apps (PWAs).">
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0d0d">
+
+  <style>
+    /* ===== Base Styles ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Arial', sans-serif; background:#0d0d0d; color:#fff; line-height:1.8; padding:20px; }
+    a { color:#00dfff; text-decoration:none; transition:0.3s; }
+    a:hover { color:#00bccc; }
+    header, footer { background:#111; padding:15px 20px; text-align:center; border-radius: 10px; }
+    h1, h2, h3 { color:#00dfff; }
+  html, body { 
+  overflow-x: hidden; 
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+    main { max-width:800px; margin:40px auto; padding:20px; background:#161616; border-radius:10px; }
+    p { margin-bottom:20px; }
+    blockquote { margin:20px 0; padding:15px 20px; background:#222; border-left:5px solid #00dfff; font-style:italic; }
+    footer { margin-top:50px; }
+    .btn-back { display:inline-block; margin-top:20px; padding:10px 15px; background:#00dfff; color:#111; border-radius:5px; font-weight:bold; }
+    .btn-back:hover { background:#00bccc; }
+    .social-links { display:flex; justify-content:center; gap:20px; margin-top:10px; }
+    .social-icon { width:30px; height:30px; filter: invert(1); transition: transform 0.3s, filter 0.3s; }
+    .social-icon:hover { transform: scale(1.2); filter: invert(0.5) sepia(1) saturate(5) hue-rotate(180deg); }
+    .article-navigation { display:flex; justify-content:space-between; align-items:center; margin-top:1rem; }
+    .article-navigation a { padding:0.6rem 1.1rem; background:#0d1117; color:#fff; text-decoration:none; border-radius:8px; font-size:0.80rem; transition:background 0.3s ease, transform 0.2s ease; }
+    .article-navigation a:hover { background:#2563eb; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<header data-aos="fade-down">
+  <h1>Musa</h1>
+</header>
+
+<main>
+  <h2 data-aos="fade-up">Progressive Web Apps Tips</h2>
+  <p data-aos="fade-up" data-aos-delay="100"><strong>Date:</strong> September 30, 2025</p>
+
+  <p data-aos="fade-up" data-aos-delay="200">
+    Progressive Web Apps (PWAs) combine the best of web and mobile apps to deliver fast, reliable, and engaging user experiences. 
+    They can work offline, be installed like native apps, and still retain the flexibility of the web.
+  </p>
+
+  <blockquote data-aos="fade-up" data-aos-delay="300">
+    "A great PWA feels invisible—it just works, whether you’re online, offline, or on a shaky network."
+  </blockquote>
+
+  <h3 data-aos="fade-right">Key Tips for Building PWAs</h3>
+  <p data-aos="fade-up" data-aos-delay="400">
+    • <strong>Performance First:</strong> Optimize loading times by minimizing scripts, compressing assets, and lazy loading content.<br>
+    • <strong>Offline Support:</strong> Use service workers to cache essential resources, ensuring your app works without internet.<br>
+    • <strong>Installable:</strong> Add a <code>manifest.json</code> so users can install your app to their home screens.<br>
+    • <strong>Push Notifications:</strong> Use them sparingly to keep users engaged without being intrusive.<br>
+    • <strong>Cross-Device Testing:</strong> Make sure your app feels consistent across different browsers and screen sizes.
+  </p>
+
+  <h3 data-aos="fade-right">Why PWAs Matter</h3>
+  <p data-aos="fade-up" data-aos-delay="500">
+    PWAs bridge the gap between the accessibility of the web and the immersive feel of mobile apps. 
+    They’re cost-effective to build and maintain compared to native apps while still offering robust functionality.
+  </p>
+
+  <p data-aos="fade-up" data-aos-delay="600">
+    With companies like Twitter, Pinterest, and Starbucks adopting PWAs, it’s clear that the future of app development 
+    is not tied to app stores alone but to seamless, installable web experiences.
+  </p>
+
+  <div class="article-navigation" data-aos="fade-up" data-aos-delay="700">
+    <a href="my_shelf.html" class="btn-back">← Back to Shelves</a>
+    <a href="index.html" class="btn-back">Back to Home →</a>
+  </div>
+</main>
+
+<footer data-aos="fade-up">
+  <p>&copy; 2025 Abubakar Musa</p>
+  <div class="social-links">
+    <a href="https://twitter.com/MusaAbubak60427" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" class="social-icon"></a>
+    <a href="https://github.com/musa46-igtm" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="social-icon"></a>
+    <a href="https://youtube.com/@musabuilds" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="social-icon"></a>
+  </div>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000, once: true });</script>
+
+<!-- Service Worker Register -->
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(reg => console.log("✅ Service Worker registered:", reg))
+      .catch(err => console.error("❌ Service Worker failed:", err));
+  }
+</script>
+
+</body>
+</html>

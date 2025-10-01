@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>UX in Frontend Development | Abubakar Musa</title>
+  <meta name="description" content="Exploring how frontend developers can improve user experience through thoughtful design and implementation.">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0d0d">
+
+  
+  
+  <style>
+    /* ===== Base Styles ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Arial', sans-serif; background:#0d0d0d; color:#fff; line-height:1.8; padding:20px; }
+    a { color:#00dfff; text-decoration:none; transition:0.3s; }
+    a:hover { color:#00bccc; }
+    header, footer { background:#111; padding:15px 20px; text-align:center; border-radius: 10px; }
+    h1, h2, h3 { color:#00dfff; }
+  html, body { 
+  overflow-x: hidden; 
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+    main { max-width:800px; margin:40px auto; padding:20px; background:#161616; border-radius:10px; }
+    p { margin-bottom:20px; }
+    blockquote { margin:20px 0; padding:15px 20px; background:#222; border-left:5px solid #00dfff; font-style:italic; }
+    footer { margin-top:50px; }
+    .btn-back { display:inline-block; margin-top:20px; padding:10px 15px; background:#00dfff; color:#111; border-radius:5px; font-weight:bold; }
+    .btn-back:hover { background:#00bccc; }
+    .social-links {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-top:10px;
+    }
+    .social-icon {
+      width:30px;
+      height:30px;
+      filter: invert(1);
+      transition: transform 0.3s, filter 0.3s;
+    }
+    .social-icon:hover {
+      transform: scale(1.2);
+      filter: invert(0.5) sepia(1) saturate(5) hue-rotate(180deg);
+    }
+  .article-navigation {
+  display: flex;
+  justify-content: space-between; /* spreads buttons apart */
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.article-navigation a {
+  padding: 0.6rem 1.1rem;
+  background: #0d1117; /* matches the dark vibe */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.80rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.article-navigation a:hover {
+  background: #2563eb; /* nice blue hover */
+  transform: translateY(-2px);
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 data-aos="fade-up">Musa</h1>
+</header>
+
+<main>
+  <h2 data-aos="fade-up" data-aos-delay="100">UX in Frontend Development</h2>
+  <p><strong>Date:</strong> September 30, 2025</p>
+
+  <p data-aos="fade-up">
+    Frontend development is more than just writing HTML, CSS, and JavaScript it’s about shaping the way 
+    people interact with digital products. User experience (UX) sits at the heart of this, ensuring that 
+    interfaces are not only functional but also intuitive and enjoyable.
+  </p>
+
+  <blockquote data-aos="fade-right">
+    "Good frontend code is invisible. The user remembers the experience, not the implementation."
+  </blockquote>
+
+  <h3 data-aos="fade-up">Why UX Matters for Frontend Devs</h3>
+  <p data-aos="fade-up">
+    • <strong>Accessibility:</strong> Clean semantic markup and ARIA attributes help everyone, including users with disabilities.<br>
+    • <strong>Performance:</strong> Fast-loading sites reduce friction and keep users engaged.<br>
+    • <strong>Consistency:</strong> Aligns design and development for seamless experiences.<br>
+    • <strong>Clarity:</strong> Simple navigation and predictable patterns build user trust.<br>
+  </p>
+
+  <h3 data-aos="fade-up">Practical UX Tips</h3>
+  <p data-aos="fade-left">
+    • Optimize forms with clear labels, validation, and helpful feedback.<br>
+    • Use meaningful animations to guide attention without overwhelming users.<br>
+    • Ensure responsive layouts across all devices and screen sizes.<br>
+    • Prioritize readability typography, contrast, and spacing can make or break UX.<br>
+  </p>
+
+  <p data-aos="fade-up">
+    Frontend developers are UX practitioners by default. Every line of code they write 
+    influences how a user feels when interacting with a product. Bridging the gap between 
+    design and development is the key to building experiences that truly resonate.
+  </p>
+
+  <div class="article-navigation" data-aos="fade-up" data-aos-delay="700">
+  <a href="my_shelf.html" class="btn-back">← Back to Shelves</a>
+  <a href="index.html" class="btn-back">Back to Home →</a>
+  </div>
+</main>
+
+<footer data-aos="fade-up">
+  <p>&copy; 2025 Abubakar Musa</p>
+  <div class="social-links">
+    <a href="https://twitter.com/MusaAbubak60427" target="_blank" aria-label="Twitter">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" class="social-icon">
+    </a>
+    <a href="https://github.com/musa46-igtm" target="_blank" aria-label="GitHub">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="social-icon">
+    </a>
+    <a href="https://youtube.com/@musabuilds" target="_blank" aria-label="YouTube">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="social-icon">
+    </a>
+  </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000, once: true });</script>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Abubakar Musa: Fun</title>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d0d0d">
+
+<style>
+/* ===== Base Styles ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { 
+  overflow-x: hidden; 
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+body { 
+  font-family:'Arial', sans-serif; 
+  background:#0d0d0d; 
+  color:#fff; 
+  line-height:1.6; 
+  scroll-behavior:smooth;
+}
+a { text-decoration:none; color:#00dfff; transition:0.3s; }
+a:hover { color:#00bccc; }
+section { padding:100px 20px; max-width:1000px; margin:0 auto; width:100%; overflow-x:hidden; }
+h1,h2 { font-weight:bold; }
+h1 { font-size:1.6rem; color:#00dfff; margin-left:10px; }
+h2 { font-size:2rem; color:#00dfff; margin-bottom:20px; text-align:center; }
+p { margin-bottom:15px; color:#ccc; }
+
+/* ===== Header ===== */
+header { 
+  position:fixed; 
+  top:0;
+  left:0;
+  right:0;
+  background:#111; 
+  padding:15px 20px; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  z-index:100; 
+  box-shadow:0 2px 10px rgba(0,0,0,0.5);
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+nav { display:flex; align-items:center; position:relative; }
+nav ul { display:flex; list-style:none; gap:20px; margin:0; align-items:center; }
+nav li { font-weight:bold; }
+nav a { color:#00dfff; }
+nav a:hover { color:#00bccc; }
+
+/* ===== Hamburger ===== */
+.hamburger { display:none; flex-direction:column; gap:6px; cursor:pointer; padding:10px; transition:0.3s; }
+.hamburger div { width:30px; height:4px; background:#00dfff; border-radius:2px; transition:0.3s; }
+.hamburger.open div:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
+.hamburger.open div:nth-child(2) { opacity:0; }
+.hamburger.open div:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+
+@media(max-width:768px){
+  nav ul { position:fixed; top:60px; right:-100%; background:#111; height:calc(100% - 60px); flex-direction:column; width:220px; padding:20px; transition:right 0.3s ease; z-index:99; }
+  nav ul.active { right:0; }
+  .hamburger { display:flex; }
+  nav li { padding:15px 0; font-size:1.1rem; width:100%; }
+  nav li a { display:block; width:100%; }
+}
+
+/* ===== Quote Cards ===== */
+.quote-grid { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:40px; }
+.quote-card { 
+  background:#222; 
+  padding:30px; 
+  border-radius:12px; 
+  width:350px; 
+  border-left:5px solid #00dfff;
+  transition: transform 0.3s, box-shadow 0.3s; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.quote-card:hover { 
+  transform: translateY(-8px); 
+  box-shadow:0 12px 25px rgba(0,0,0,0.7);
+  border-left-color:#00bccc;
+}
+.quote-card p { 
+  font-style:italic; 
+  font-size:1.1rem; 
+  color:#fff; 
+  margin-bottom:15px;
+  line-height:1.8;
+}
+.quote-card .author { 
+  color:#00dfff; 
+  font-weight:bold; 
+  font-style:normal;
+  text-align:right;
+  margin-bottom:0;
+}
+
+/* ===== Fun Facts Section ===== */
+.fun-facts { 
+  background:#111; 
+  padding:50px 30px; 
+  border-radius:12px; 
+  margin:50px auto;
+  max-width:800px;
+  border:2px solid #00dfff;
+}
+.fun-facts h3 { 
+  color:#00dfff; 
+  font-size:1.5rem; 
+  margin-bottom:20px;
+  text-align:center;
+}
+.fun-facts ul { 
+  list-style:none; 
+  padding:0;
+}
+.fun-facts li { 
+  padding:15px; 
+  margin-bottom:10px; 
+  background:#222; 
+  border-radius:8px;
+  border-left:3px solid #00dfff;
+  transition:transform 0.3s;
+}
+.fun-facts li:hover {
+  transform:translateX(10px);
+}
+
+/* ===== Random Quote Button ===== */
+.random-quote-section {
+  text-align:center;
+  padding:50px 20px;
+  background:#111;
+  border-radius:12px;
+  margin:50px auto;
+  max-width:600px;
+}
+.btn { 
+  display:inline-block; 
+  padding:15px 30px; 
+  background:#00dfff; 
+  color:#111; 
+  border-radius:25px; 
+  font-weight:bold; 
+  transition:0.3s; 
+  border:none; 
+  cursor:pointer;
+  font-size:1rem;
+}
+.btn:hover { 
+  background:#00bccc; 
+  transform:scale(1.05);
+}
+#random-quote-display {
+  margin-top:30px;
+  font-style:italic;
+  font-size:1.2rem;
+  color:#00dfff;
+  min-height:60px;
+}
+
+/* Footer */
+footer { text-align:center; padding:40px 20px; background:#111; margin-top:50px; color:#888; }
+
+.social-links {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:10px;
+}
+
+.social-icon {
+  width:30px;
+  height:30px;
+  filter: invert(1);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(180deg);
+}
+
+@media(max-width:768px){
+  .quote-card { width:90%; }
+  .quote-grid { gap:20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 data-aos="fade-right" data-aos-delay="700">Musa</h1>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">My Work</a></li>
+      <li><a href="my_shelf.html">My Shelf</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" data-aos="fade-left" data-aos-delay="1000">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2 data-aos="fade-up">Fun & Inspiration</h2>
+    <p style="text-align:center; color:#ccc; max-width:600px; margin:0 auto 40px;" data-aos="fade-up" data-aos-delay="200">
+      A collection of quotes that inspire me, tech humor, and fun facts about coding.
+    </p>
+
+    <!-- Quotes Grid -->
+    <div class="quote-grid">
+      <div class="quote-card" data-aos="fade-down" data-aos-delay="100">
+        <p>"Code is like humor. When you have to explain it, it's bad."</p>
+        <p class="author">— Cory House</p>
+      </div>
+
+      <div class="quote-card" data-aos="fade-up-right" data-aos-delay="200">
+        <p>"First, solve the problem. Then, write the code."</p>
+        <p class="author">— John Johnson</p>
+      </div>
+
+      <div class="quote-card" data-aos="fade-up-left" data-aos-delay="300">
+        <p>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
+        <p class="author">— Martin Fowler</p>
+      </div>
+
+      <div class="quote-card" data-aos="fade-up" data-aos-delay="100">
+        <p>"The best error message is the one that never shows up."</p>
+        <p class="author">— Thomas Fuchs</p>
+      </div>
+
+      <div class="quote-card" data-aos="fade-up" data-aos-delay="200">
+        <p>"Talk is cheap. Show me the code."</p>
+        <p class="author">— Linus Torvalds</p>
+      </div>
+
+      <div class="quote-card" data-aos="fade-up" data-aos-delay="300">
+        <p>"Make it work, make it right, make it fast."</p>
+        <p class="author">— Kent Beck</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fun Facts Section -->
+  <section>
+    <div class="fun-facts" data-aos="fade-up">
+      <h3>Fun Dev Facts</h3>
+      <ul>
+        <li data-aos="fade-right" data-aos-delay="100">The first computer bug was an actual bug - a moth found in a computer in 1947.</li>
+        <li data-aos="fade-right" data-aos-delay="200">The first computer programmer was a woman - Ada Lovelace in the 1840s.</li>
+        <li data-aos="fade-right" data-aos-delay="300">More than 90% of the world's currency exists only on computers.</li>
+        <li data-aos="fade-right" data-aos-delay="400">The average person blinks 15-20 times per minute, but only 7 times when using a computer.</li>
+        <li data-aos="fade-right" data-aos-delay="500">There are over 700 programming languages in existence.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Random Quote Generator -->
+  <section>
+    <div class="random-quote-section" data-aos="zoom-in">
+      <h2 style="margin-bottom:20px;">Need Inspiration?</h2>
+      <button class="btn" id="random-quote-btn">Get Random Quote</button>
+      <div id="random-quote-display"></div>
+    </div>
+  </section>
+</main>
+
+<footer data-aos="fade-up">
+  <p>&copy; 2025 Abubakar Musa</p>
+  <div class="social-links">
+    <a href="https://twitter.com/MusaAbubak60427" target="_blank" aria-label="Twitter">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" class="social-icon">
+    </a>
+    <a href="https://github.com/musa46-igtm" target="_blank" aria-label="GitHub">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="social-icon">
+    </a>
+    <a href="https://youtube.com/@musabuilds" target="_blank" aria-label="YouTube">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="social-icon">
+    </a>
+  </div>
+</footer>
+
+<script>
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  hamburger.classList.toggle('open');
+});
+
+// Close menu when clicking on a link (mobile)
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('open');
+  });
+});
+
+// Random Quote Generator
+const quotes = [
+  { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+  { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
+  { text: "Before software can be reusable it first has to be usable.", author: "Ralph Johnson" },
+  { text: "Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.", author: "Antoine de Saint-Exupery" },
+  { text: "Code never lies, comments sometimes do.", author: "Ron Jeffries" },
+  { text: "Programs must be written for people to read, and only incidentally for machines to execute.", author: "Harold Abelson" },
+  { text: "The best way to predict the future is to invent it.", author: "Alan Kay" },
+  { text: "In programming, the hard part isn't solving problems, but deciding what problems to solve.", author: "Paul Graham" },
+  { text: "Debugging is twice as hard as writing the code in the first place.", author: "Brian Kernighan" },
+  { text: "Good code is its own best documentation.", author: "Steve McConnell" }
+];
+
+document.getElementById('random-quote-btn').addEventListener('click', function() {
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  const display = document.getElementById('random-quote-display');
+  display.innerHTML = `"${randomQuote.text}"<br><strong>— ${randomQuote.author}</strong>`;
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000, once: true });</script>
+
+</body>
+</html>
